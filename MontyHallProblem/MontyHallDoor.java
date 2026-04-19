@@ -15,6 +15,9 @@ public final class MontyHallDoor {
     return isOpen;
   }
 
+  /**
+   * Opens a door. This method is protected because only the HOST can open doors.
+   */
   protected void open() {
     isOpen = true;
   }
@@ -26,6 +29,10 @@ public final class MontyHallDoor {
     return isPrize;
   }
 
+  /**
+   * Checks if a door has a prize, even if it is closed.
+   * This method is protected because only the HOST can know what's behind closed doors.
+   */
   protected boolean hasPrize() {
     return isPrize;
   }

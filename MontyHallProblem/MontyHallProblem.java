@@ -65,6 +65,13 @@ public class MontyHallProblem {
     return retStr;
   }
 
+  public MontyHallDoor getDoor(int index) throws MontyHallException {
+    if (index < 0 || index > numDoors) {
+      throw new MontyHallException("Index " + index + " out of range.");
+    }
+    return doors[index];
+  }
+
   public void chooseDoor(int index) throws MontyHallException {
     // make sure the door index is in range
     if (index < 0 || index >= numDoors) {

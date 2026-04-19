@@ -4,7 +4,11 @@ import java.util.Scanner;
 
 import MontyHall.MontyHallProblem.*;
 
+/**
+ * Interactive Monty Hall Game. Type a number to select a door.
+ */
 public class MontyHallTest {
+  /*** PARAMETERS ***/
   static final int NUM_DOORS = 4;
   
   public static void main(String[] args) {
