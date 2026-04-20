@@ -4,5 +4,5 @@ public enum MontyHallStrategy {
   STAY,
   SWITCH,
   RANDOM,
-  SMART_SWITCH,
+  GREEDY_SWITCH,
 }

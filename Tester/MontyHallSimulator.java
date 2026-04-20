@@ -11,9 +11,9 @@ import MontyHall.MontyHallProblem.*;
  */
 public class MontyHallSimulator {
   /*** PARAMETERS ***/
-  public static final int NUM_DOORS = 50;
+  public static final int NUM_DOORS = 100;
   public static final int NUM_GAMES = 10000;
-  public static final MontyHallStrategy strategy = MontyHallStrategy.SMART_SWITCH;
+  public static final MontyHallStrategy strategy = MontyHallStrategy.GREEDY_SWITCH;
 
   public static void main(String[] args) {
     System.out.println("Simulating " + NUM_GAMES + " Monty Hall Problems...");
@@ -27,7 +27,7 @@ public class MontyHallSimulator {
         // need a reference for prevChoice, since it's captured by the lambda and dynamic
         // https://stackoverflow.com/questions/34865383/variable-used-in-lambda-expression-should-be-final-or-effectively-final
         final AtomicInteger prevChoiceRef = new AtomicInteger(currChoice);
-        // tracking for SMART_SWITCH strategy
+        // tracking for GREEDY_SWITCH strategy
         final HashSet<Integer> prevChoiceSet = new HashSet<Integer>();
         final ArrayList<Integer> prevChoices = new ArrayList<Integer>(NUM_DOORS);
         prevChoiceSet.add(currChoice);
@@ -36,7 +36,7 @@ public class MontyHallSimulator {
         for (int p = 1; p < mhp.getNumPhases(); p++) {
           // choose door after the host opens one
           switch(strategy) {
-            case SMART_SWITCH:
+            case GREEDY_SWITCH:
               // first, try to switch to another closed door never picked before
               currChoice = mhp.getRandomDoorSatisfying((d, i) -> !prevChoiceSet.contains(i) && !d.isOpen());
               if (currChoice < 0) {

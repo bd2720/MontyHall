@@ -18,7 +18,8 @@ Modeling and extending the Monty Hall Problem using OOP.
   - It can be determined that, if M<sub>n</sub> denotes a game with N doors, then the win probability is a weighted average of that of the previous two games: $$ M_n = \frac{n-1}{n}M_{n-1} + \frac{1}{n}M_{n-2} $$
   - An exact formula for the win probability if you always switch is as follows: $$ M_n = 1 - \displaystyle\sum_{k=0}^{n}\frac{(-1)^k}{k!} $$
   - This strategy has a win probability slightly above 60%; as the number of doors increases, this win probability converges to exactly `1-1/e` (~63.2%).
-- **SMART SWITCH:** The contestant first tries to select a random closed door they have never selected before. If this is not possible, the most recently selected door that is NOT currently selected is chosen.
+- **GREEDY SWITCH:** The contestant first tries to select a random closed door they have never selected before. If this is not possible, the most recently selected door that is NOT currently selected is chosen.
+  - The main benefit of this strategy comes from the forced exploraton of all unchosen closed doors. This strategy guarantees that the prize door will have been selected at least once before the end of the game. It may be that, once every open door has been chosen once, the rule by which new doors are selected does not affect the win probability over many trials.
   - For N < 10, this strategy is worse than or equal to **SWITCH**.
   - For large N, it performs substantially better that **SWITCH**, at around 69%.
   - This is the best strategy I have found so far, at least for very large N.
